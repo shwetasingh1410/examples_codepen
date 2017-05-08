@@ -175,4 +175,39 @@ render(){
 }
 ReactDOM.render(<Toggle/>, document.getElementById('root'));
 
+-------------------------------
+Event Handler:
+class TextAreaForm extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      value : "hello" };
+    
+    this.handleChange  = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    }
+  
+  handleChange(event){
+    this.setState({value :event.target.value})
+  }
+  
+  handleSubmit(){
+    alert('submission done for' + this.state.value);
+    event = preventDefault();
+  }
+  
+render(){
+  return (
+  <form onSubmit={this.handleSubmit}>
+      <label>
+        Name 
+      <textArea value={this.state.value} onChange={this.handleChange}/>
+        </label>
+      <input type = "submit" value="submit" />
+      </form>
+        
+  );
+}
+}
+ReactDOM.render(<TextAreaForm/>, document.getElementById('root'));
 
