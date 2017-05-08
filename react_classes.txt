@@ -19,3 +19,86 @@ function Welcome(props){
 //const element = <Welcome />
       
  ReactDOM.render(<Welcome/>, document.getElementById('root'));
+
+-------------
+Display Time :
+function DateandTime(props){
+  return (
+  <div>
+      <h1> Its {new Date().toLocaleTimeString()} </h1>
+      <h2> Great ! </h2>
+      </div>)
+}
+
+ReactDOM.render(<DateandTime />,
+document.getElementById('root')
+);
+
+----------Using Components:
+
+function getGreeting(user){
+  if(user){
+    return <h1> Hello, {formatName(user)} ! </h1>;
+  }
+  return <h1> Hello, Stranger </h1>;
+  }
+
+function formatName(props){
+  return <h1> Shweta </h1>;
+}
+ReactDOM.render(getGreeting,
+document.getElementById('root')
+);
+-----------------
+Using Props:
+function Welcome(props){
+ return <h1> Hello , {props.name} !</h1>
+};
+
+//const element = <Welcome />
+      
+ ReactDOM.render(<Welcome name="Shweta"/>, document.getElementById('root'));
+----------------
+
+2 components:
+function Welcome(props){
+ return <h1> {props.message} , {props.name} !</h1>
+};
+
+function GreetAll(){
+return (
+<div className = "style">
+  <Welcome name = "Harry" message="Hey"/>
+  <Welcome name = " Henry" message= "Hi"/>
+  <Welcome name = "Potter" message= "Hello"/>
+  </div>
+  ) 
+}
+ 
+      
+ReactDOM.render(<GreetAll />, document.getElementById('root'));
+
+-------------
+2 components with condition:
+function Welcome(props){
+ return <h1> Welcome ! {props.name}</h1>
+};
+
+function SignUp(props){
+  return <h1> Sign Up! {props.name}</h1>
+}
+function Greeting(props)
+{
+  const isLoggedIn = props.isLoggedIn ;
+  const name = props.name ;
+  if(isLoggedIn == true)
+    {
+     return  <Welcome name={name}/>
+    }
+       return <SignUp name={name} />
+} 
+ReactDOM.render(Greeting isLoggedIn = {true} name = "Shweta", document.getElementById('root'));
+
+-----------
+Using Class:
+v
