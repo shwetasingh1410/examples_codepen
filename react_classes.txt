@@ -100,5 +100,39 @@ function Greeting(props)
 ReactDOM.render(Greeting isLoggedIn = {true} name = "Shweta", document.getElementById('root'));
 
 -----------
-Using Class:
-v
+Ticking Clock:
+
+class Clock extends React.Component {
+  constructor(props)
+  {
+    super(props);
+    this.state = {date : new Date()};
+    console.log("invoked..");
+  }
+    componentWillMount(){
+      console.log("will mount");
+    }
+    
+    componentDidMount(){
+      console.log("didmount");
+      setInterval(()=> this.tick(), 1000);
+    }
+  
+    tick(){
+      this.timeId = this.setState({date:new Date()})
+    }
+    
+  componentWillUnmount(){
+      clearInterval(this.timeId);
+  }
+    render() {
+        return (
+          <h1>Is is {this.state.date.toLocaleTimeString()}</h1>
+          );
+    }
+}
+
+
+ ReactDOM.render(<Clock/>, document.getElementById('root'));
+-------------
+
