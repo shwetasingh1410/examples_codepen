@@ -1,0 +1,21 @@
+Array:
+const numbers = [2,4,6,8,10];
+const doubled = numbers.map((number) => <li>{number} </li>)
+                            
+const ele = <ul> {doubled} </ul>
+
+ReactDOM.render(ele,
+document.getElementById('root')
+);
+
+---------------
+
+Simple Hello using Component:
+
+function Welcome(props){
+ return <h1> Hello All !</h1>
+};
+
+//const element = <Welcome />
+      
+ ReactDOM.render(<Welcome/>, document.getElementById('root'));
