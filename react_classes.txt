@@ -320,4 +320,8 @@ class StudentList extends React.Component {
 };
 
 ReactDOM.render(<App />, document.getElementById('root'));
+----------------
+Temperature:
+http://codepen.io/AnisaI/pen/YNvOVe
+--------------------
 
