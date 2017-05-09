@@ -254,4 +254,70 @@ handleInputChange(event){
 
 
 ReactDOM.render(<Reservation/>, document.getElementById('root'));
+------------------------------------
+
+Filtering:
+const Student = (props) => <li>{props.name}</li>;
+
+class App extends React.Component {
+  
+  constructor (props) {
+    super(props);
+    
+    this.state = {
+      fruits:  ['Apple','Brocilli','Banana','Cinnamon','Cider','Chicken','Fish','Grapes'],
+      filter: null
+    };
+  }
+  
+  updateSearch (inputValue) {
+    let filter = this.state.filter;
+    
+    this.setState({
+      filter: inputValue
+    });
+  }
+  
+  render () {
+    return (
+      <div>
+        <h1>Food Filter</h1>
+        <FruitsFilter updateSearch={this.updateSearch.bind(this)} searchText={this.state.filter} />
+        <StudentList filter={this.state.filter} fruits={this.state.fruits}></StudentList>
+      </div>
+    );
+  }
+}
+
+class FruitsFilter extends React.Component {
+  
+  handleChange (event) {
+    this.props.updateSearch(event.target.value);
+  }
+  
+  render () {
+    return (
+      <input type="text" placeholder="Filter list" className="input-search" onChange={this.handleChange.bind(this)} value={this.props.searchText} />
+    )
+  }
+}
+class StudentList extends React.Component {
+  
+  filter (fruits) {
+    if (!this.props.filter) {
+      return fruits
+    }
+    return fruits.filter((student) => student.toLowerCase().indexOf(this.props.filter.toLowerCase()) >= 0)
+  }
+  render () {
+    return (
+        <ul>   
+          {   this.filter(this.props.fruits)
+              .map((student) => <Student name={student}></Student>)}
+        </ul>
+    )
+  }
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
 
