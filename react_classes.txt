@@ -324,5 +324,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 Temperature:
 http://codepen.io/AnisaI/pen/YNvOVe
 --------------------
-
+TESTING WITH JEST:
 https://www.codementor.io/vijayst/unit-testing-react-components-jest-or-enzyme-du1087lh8
+
+https://dzone.com/articles/testing-react-applications-with-jest
